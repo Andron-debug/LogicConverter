@@ -97,39 +97,41 @@ namespace LogicCalculator
         }
         private static string PrefixToPostfix(string prefix)
         {
-            Stack<string> l_st = new Stack<string>();
-            Stack<string> o_st = new Stack<string>();
-            int letter_count = 0;
             string result = "";
+            int litter_count = 0;
+            Stack<Char> st = new Stack<char>();
+            Stack<Char> st2 = new Stack<char>();
             foreach (char c in prefix)
             {
-                if (char.IsLetter(c))
+                if (!char.IsLetter(c))
                 {
-                    l_st.Push(c.ToString());
-                    letter_count++;
-                    if (letter_count == 2)
-                    {
-                        string op1 = l_st.Pop();
-                        string op2 = l_st.Pop();
-                        result += op2 + op1 + o_st.Pop();
-                        letter_count = 0;
-                    }
-                    if((letter_count == 1)&&(o_st.Peek() == "¬"))
-                    {
-                        result += l_st.Pop() + o_st.Pop();
-                        letter_count = 0;
-                    }
+                    if (st.Count != 0) st2.Push(st.Peek());
+                    st.Push(c);
+                    if(c != '¬') litter_count = 0;
                 }
                 else
                 {
-                    o_st.Push(c.ToString());
-                    letter_count = 0;
+                    result += c.ToString();
+                    litter_count++;
+                    if(st.Peek() == '¬')
+                    {
+                        result += st.Pop();
+                        if (st2.Count != 0) st2.Pop();
+                    }
+                    if (st2.Count != 0)
+                    {
+                        if ((priority(st.Peek()) > priority(st2.Peek()))&&(litter_count == 2))
+                        {
+                            result += st.Pop();
+                            st2.Pop();
+                        }
+                    }
                 }
             }
-            while (l_st.Count != 0) result += l_st.Pop();
-            while (o_st.Count != 0)
+            
+            while (st.Count != 0)
             {
-                result += o_st.Pop();
+                result += st.Pop();
             }
             return result;
         }
