@@ -260,7 +260,7 @@ namespace LogicCalculator
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(60, 60);
             this.button15.TabIndex = 20;
-            this.button15.Text = "↔ ";
+            this.button15.Text = "↔";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button_Click);
             // 

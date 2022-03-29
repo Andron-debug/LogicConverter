@@ -15,8 +15,31 @@ namespace LogicCalculator
         }
         public string ToPrexix()
         {
-            // http://blog.kislenko.net/show.php?id=1927;
-            return "";
+            string postfix = ToPostfix();
+            Stack<string> st = new Stack<string>();
+            foreach(char c in postfix)
+            {
+                if (!char.IsLetter(c))
+                {
+                    if(c != '¬') { 
+                    string op1 = st.Pop();
+                    string op2 = st.Pop();
+                    string temp = c.ToString() + op2 + op1;
+                    st.Push(temp);
+                    }
+                    else
+                    {
+                        string temp = c.ToString() + st.Pop();
+                        st.Push(temp);
+                    }
+                }
+                else
+                {
+                    st.Push(c.ToString());
+                }
+            }
+
+            return st.Pop();
         }
         public string ToPostfix()
         {
