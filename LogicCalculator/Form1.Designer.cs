@@ -53,13 +53,16 @@ namespace LogicCalculator
             this.ok_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.postf_textBox = new System.Windows.Forms.TextBox();
+            this.inf_radioButton = new System.Windows.Forms.RadioButton();
+            this.pref_radioButton = new System.Windows.Forms.RadioButton();
+            this.postf_radioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // inf_textBox
             // 
             this.inf_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.inf_textBox.BackColor = System.Drawing.Color.White;
+            this.inf_textBox.BackColor = System.Drawing.SystemColors.Control;
             this.inf_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.inf_textBox.Location = new System.Drawing.Point(12, 50);
             this.inf_textBox.Name = "inf_textBox";
@@ -71,7 +74,7 @@ namespace LogicCalculator
             // 
             this.pref_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pref_textBox.BackColor = System.Drawing.Color.White;
+            this.pref_textBox.BackColor = System.Drawing.SystemColors.Control;
             this.pref_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pref_textBox.Location = new System.Drawing.Point(12, 126);
             this.pref_textBox.Name = "pref_textBox";
@@ -160,7 +163,7 @@ namespace LogicCalculator
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(31, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(266, 29);
             this.label1.TabIndex = 11;
@@ -170,7 +173,7 @@ namespace LogicCalculator
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(7, 94);
+            this.label2.Location = new System.Drawing.Point(31, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(279, 29);
             this.label2.TabIndex = 12;
@@ -301,7 +304,7 @@ namespace LogicCalculator
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(7, 159);
+            this.label3.Location = new System.Drawing.Point(31, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(290, 29);
             this.label3.TabIndex = 24;
@@ -309,17 +312,54 @@ namespace LogicCalculator
             // 
             // postf_textBox
             // 
+            this.postf_textBox.BackColor = System.Drawing.SystemColors.Control;
             this.postf_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.postf_textBox.Location = new System.Drawing.Point(12, 191);
             this.postf_textBox.Name = "postf_textBox";
             this.postf_textBox.Size = new System.Drawing.Size(776, 27);
             this.postf_textBox.TabIndex = 25;
             // 
+            // inf_radioButton
+            // 
+            this.inf_radioButton.AutoSize = true;
+            this.inf_radioButton.Location = new System.Drawing.Point(12, 28);
+            this.inf_radioButton.Name = "inf_radioButton";
+            this.inf_radioButton.Size = new System.Drawing.Size(17, 16);
+            this.inf_radioButton.TabIndex = 26;
+            this.inf_radioButton.TabStop = true;
+            this.inf_radioButton.UseVisualStyleBackColor = true;
+            this.inf_radioButton.CheckedChanged += new System.EventHandler(this.type_Changed);
+            // 
+            // pref_radioButton
+            // 
+            this.pref_radioButton.AutoSize = true;
+            this.pref_radioButton.Location = new System.Drawing.Point(12, 104);
+            this.pref_radioButton.Name = "pref_radioButton";
+            this.pref_radioButton.Size = new System.Drawing.Size(17, 16);
+            this.pref_radioButton.TabIndex = 27;
+            this.pref_radioButton.TabStop = true;
+            this.pref_radioButton.UseVisualStyleBackColor = true;
+            this.pref_radioButton.CheckedChanged += new System.EventHandler(this.type_Changed);
+            // 
+            // postf_radioButton
+            // 
+            this.postf_radioButton.AutoSize = true;
+            this.postf_radioButton.Location = new System.Drawing.Point(12, 169);
+            this.postf_radioButton.Name = "postf_radioButton";
+            this.postf_radioButton.Size = new System.Drawing.Size(17, 16);
+            this.postf_radioButton.TabIndex = 28;
+            this.postf_radioButton.TabStop = true;
+            this.postf_radioButton.UseVisualStyleBackColor = true;
+            this.postf_radioButton.CheckedChanged += new System.EventHandler(this.type_Changed);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.postf_radioButton);
+            this.Controls.Add(this.pref_radioButton);
+            this.Controls.Add(this.inf_radioButton);
             this.Controls.Add(this.postf_textBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ok_button);
@@ -378,6 +418,9 @@ namespace LogicCalculator
         private System.Windows.Forms.Button ok_button;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox postf_textBox;
+        private System.Windows.Forms.RadioButton inf_radioButton;
+        private System.Windows.Forms.RadioButton pref_radioButton;
+        private System.Windows.Forms.RadioButton postf_radioButton;
     }
 }
 

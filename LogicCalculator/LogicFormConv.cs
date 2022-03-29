@@ -25,12 +25,12 @@ namespace LogicCalculator
                     postfix = InfexToPostfix(infix);
                     prefix = PostfixToPrefix(postfix);
                     break;
-                case 2: //Префиксная запись
+                case 1: //Префиксная запись
                     prefix = eq;
                     postfix = PrefixToPostfix(prefix);
                     infix = PostfixToInfix(postfix);
                     break;
-                case 3://Постфиксная запись
+                case 2://Постфиксная запись
                     postfix = eq;
                     infix = PostfixToInfix(postfix);
                     prefix = PostfixToPrefix(postfix);
