@@ -29,7 +29,7 @@ namespace LogicCalculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.eq_textBox = new System.Windows.Forms.TextBox();
+            this.inf_textBox = new System.Windows.Forms.TextBox();
             this.pref_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,17 +55,17 @@ namespace LogicCalculator
             this.postf_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // eq_textBox
+            // inf_textBox
             // 
-            this.eq_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.inf_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.eq_textBox.BackColor = System.Drawing.Color.White;
-            this.eq_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.eq_textBox.Location = new System.Drawing.Point(12, 50);
-            this.eq_textBox.Name = "eq_textBox";
-            this.eq_textBox.ReadOnly = true;
-            this.eq_textBox.Size = new System.Drawing.Size(776, 27);
-            this.eq_textBox.TabIndex = 0;
+            this.inf_textBox.BackColor = System.Drawing.Color.White;
+            this.inf_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.inf_textBox.Location = new System.Drawing.Point(12, 50);
+            this.inf_textBox.Name = "inf_textBox";
+            this.inf_textBox.ReadOnly = true;
+            this.inf_textBox.Size = new System.Drawing.Size(776, 27);
+            this.inf_textBox.TabIndex = 0;
             // 
             // pref_textBox
             // 
@@ -343,7 +343,7 @@ namespace LogicCalculator
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pref_textBox);
-            this.Controls.Add(this.eq_textBox);
+            this.Controls.Add(this.inf_textBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -354,7 +354,7 @@ namespace LogicCalculator
 
         #endregion
 
-        private System.Windows.Forms.TextBox eq_textBox;
+        private System.Windows.Forms.TextBox inf_textBox;
         private System.Windows.Forms.TextBox pref_textBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
