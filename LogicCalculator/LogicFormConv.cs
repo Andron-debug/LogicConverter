@@ -97,34 +97,39 @@ namespace LogicCalculator
         }
         private static string PrefixToPostfix(string prefix)
         {
-            Queue<string> q = new Queue<string>();
-            Stack<string> st = new Stack<string>();
+            Stack<string> l_st = new Stack<string>();
+            Stack<string> o_st = new Stack<string>();
+            int letter_count = 0;
             string result = "";
             foreach (char c in prefix)
             {
                 if (char.IsLetter(c))
                 {
-                    q.Enqueue(c.ToString());
-                    if (q.Count == 2)
+                    l_st.Push(c.ToString());
+                    letter_count++;
+                    if (letter_count == 2)
                     {
-                        string op1 = q.Dequeue();
-                        string op2 = q.Dequeue();
-                        result += op1 + op2 + st.Pop();
+                        string op1 = l_st.Pop();
+                        string op2 = l_st.Pop();
+                        result += op2 + op1 + o_st.Pop();
+                        letter_count = 0;
                     }
-                    if((q.Count == 1)&&(st.Peek() == "¬"))
+                    if((letter_count == 1)&&(o_st.Peek() == "¬"))
                     {
-                        result += q.Dequeue() + st.Pop();
+                        result += l_st.Pop() + o_st.Pop();
+                        letter_count = 0;
                     }
                 }
                 else
                 {
-                    st.Push(c.ToString());
+                    o_st.Push(c.ToString());
+                    letter_count = 0;
                 }
             }
-            while (q.Count != 0) result += q.Dequeue();
-            while (st.Count != 0)
+            while (l_st.Count != 0) result += l_st.Pop();
+            while (o_st.Count != 0)
             {
-                result += st.Pop();
+                result += o_st.Pop();
             }
             return result;
         }
