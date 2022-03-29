@@ -27,18 +27,28 @@ namespace LogicCalculator
         {
             Button bt = (Button)sender;
             eq_textBox.Text += bt.Text;
+            pref_textBox.Text = "";
+            postf_textBox.Text = "";
         }
 
         private void Clear_button_Click(object sender, EventArgs e)
         {
             eq_textBox.Text = "";
-            result_textBox.Text = "";
+            pref_textBox.Text = "";
+            postf_textBox.Text = "";
         }
 
         private void back_button_Click(object sender, EventArgs e)
         {
             if (eq_textBox.Text.Length != 0)
             eq_textBox.Text = eq_textBox.Text.Substring(0, eq_textBox.Text.Length - 1);
+        }
+
+        private void ok_button_Click(object sender, EventArgs e)
+        {
+            LogicFormConv pc = new LogicFormConv(eq_textBox.Text);
+            pref_textBox.Text = pc.ToPrexix();
+            postf_textBox.Text = pc.ToPostfix();
         }
     }
 }

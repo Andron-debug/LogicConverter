@@ -30,7 +30,7 @@ namespace LogicCalculator
         private void InitializeComponent()
         {
             this.eq_textBox = new System.Windows.Forms.TextBox();
-            this.result_textBox = new System.Windows.Forms.TextBox();
+            this.pref_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@ namespace LogicCalculator
             this.back_button = new System.Windows.Forms.Button();
             this.Clear_button = new System.Windows.Forms.Button();
             this.ok_button = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.postf_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // eq_textBox
@@ -65,22 +67,22 @@ namespace LogicCalculator
             this.eq_textBox.Size = new System.Drawing.Size(776, 27);
             this.eq_textBox.TabIndex = 0;
             // 
-            // result_textBox
+            // pref_textBox
             // 
-            this.result_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pref_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.result_textBox.BackColor = System.Drawing.Color.White;
-            this.result_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.result_textBox.Location = new System.Drawing.Point(12, 126);
-            this.result_textBox.Name = "result_textBox";
-            this.result_textBox.ReadOnly = true;
-            this.result_textBox.Size = new System.Drawing.Size(776, 27);
-            this.result_textBox.TabIndex = 2;
+            this.pref_textBox.BackColor = System.Drawing.Color.White;
+            this.pref_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pref_textBox.Location = new System.Drawing.Point(12, 126);
+            this.pref_textBox.Name = "pref_textBox";
+            this.pref_textBox.ReadOnly = true;
+            this.pref_textBox.Size = new System.Drawing.Size(776, 27);
+            this.pref_textBox.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(146, 218);
+            this.button1.Location = new System.Drawing.Point(146, 258);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 60);
             this.button1.TabIndex = 4;
@@ -91,7 +93,7 @@ namespace LogicCalculator
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(212, 218);
+            this.button2.Location = new System.Drawing.Point(212, 258);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 60);
             this.button2.TabIndex = 5;
@@ -102,7 +104,7 @@ namespace LogicCalculator
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(278, 218);
+            this.button3.Location = new System.Drawing.Point(278, 258);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 60);
             this.button3.TabIndex = 6;
@@ -113,7 +115,7 @@ namespace LogicCalculator
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(344, 218);
+            this.button4.Location = new System.Drawing.Point(344, 258);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 60);
             this.button4.TabIndex = 7;
@@ -124,7 +126,7 @@ namespace LogicCalculator
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(410, 218);
+            this.button5.Location = new System.Drawing.Point(410, 258);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(60, 60);
             this.button5.TabIndex = 8;
@@ -135,7 +137,7 @@ namespace LogicCalculator
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(476, 218);
+            this.button6.Location = new System.Drawing.Point(476, 258);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 60);
             this.button6.TabIndex = 9;
@@ -146,7 +148,7 @@ namespace LogicCalculator
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(542, 218);
+            this.button7.Location = new System.Drawing.Point(542, 258);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 60);
             this.button7.TabIndex = 10;
@@ -177,7 +179,7 @@ namespace LogicCalculator
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(111, 284);
+            this.button8.Location = new System.Drawing.Point(111, 324);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(60, 60);
             this.button8.TabIndex = 13;
@@ -188,7 +190,7 @@ namespace LogicCalculator
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(177, 284);
+            this.button9.Location = new System.Drawing.Point(177, 324);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(60, 60);
             this.button9.TabIndex = 14;
@@ -199,7 +201,7 @@ namespace LogicCalculator
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(243, 284);
+            this.button10.Location = new System.Drawing.Point(243, 324);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(60, 60);
             this.button10.TabIndex = 15;
@@ -210,7 +212,7 @@ namespace LogicCalculator
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button11.Location = new System.Drawing.Point(309, 284);
+            this.button11.Location = new System.Drawing.Point(309, 324);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(60, 60);
             this.button11.TabIndex = 16;
@@ -221,7 +223,7 @@ namespace LogicCalculator
             // button12
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(375, 284);
+            this.button12.Location = new System.Drawing.Point(375, 324);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(60, 60);
             this.button12.TabIndex = 17;
@@ -232,7 +234,7 @@ namespace LogicCalculator
             // button13
             // 
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(441, 284);
+            this.button13.Location = new System.Drawing.Point(441, 324);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(60, 60);
             this.button13.TabIndex = 18;
@@ -243,7 +245,7 @@ namespace LogicCalculator
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(507, 284);
+            this.button14.Location = new System.Drawing.Point(507, 324);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(60, 60);
             this.button14.TabIndex = 19;
@@ -254,7 +256,7 @@ namespace LogicCalculator
             // button15
             // 
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(573, 284);
+            this.button15.Location = new System.Drawing.Point(573, 324);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(60, 60);
             this.button15.TabIndex = 20;
@@ -265,7 +267,7 @@ namespace LogicCalculator
             // back_button
             // 
             this.back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.back_button.Location = new System.Drawing.Point(713, 186);
+            this.back_button.Location = new System.Drawing.Point(713, 226);
             this.back_button.Name = "back_button";
             this.back_button.Size = new System.Drawing.Size(75, 60);
             this.back_button.TabIndex = 21;
@@ -276,7 +278,7 @@ namespace LogicCalculator
             // Clear_button
             // 
             this.Clear_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.Clear_button.Location = new System.Drawing.Point(713, 252);
+            this.Clear_button.Location = new System.Drawing.Point(713, 292);
             this.Clear_button.Name = "Clear_button";
             this.Clear_button.Size = new System.Drawing.Size(75, 60);
             this.Clear_button.TabIndex = 22;
@@ -287,18 +289,39 @@ namespace LogicCalculator
             // ok_button
             // 
             this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.ok_button.Location = new System.Drawing.Point(713, 330);
+            this.ok_button.Location = new System.Drawing.Point(713, 370);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(75, 60);
             this.ok_button.TabIndex = 23;
             this.ok_button.Text = "OK";
             this.ok_button.UseVisualStyleBackColor = true;
+            this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(7, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(290, 29);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Постфиксная нотация";
+            // 
+            // postf_textBox
+            // 
+            this.postf_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.postf_textBox.Location = new System.Drawing.Point(12, 191);
+            this.postf_textBox.Name = "postf_textBox";
+            this.postf_textBox.Size = new System.Drawing.Size(776, 27);
+            this.postf_textBox.TabIndex = 25;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.postf_textBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.ok_button);
             this.Controls.Add(this.Clear_button);
             this.Controls.Add(this.back_button);
@@ -319,7 +342,7 @@ namespace LogicCalculator
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.result_textBox);
+            this.Controls.Add(this.pref_textBox);
             this.Controls.Add(this.eq_textBox);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -332,7 +355,7 @@ namespace LogicCalculator
         #endregion
 
         private System.Windows.Forms.TextBox eq_textBox;
-        private System.Windows.Forms.TextBox result_textBox;
+        private System.Windows.Forms.TextBox pref_textBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -353,6 +376,8 @@ namespace LogicCalculator
         private System.Windows.Forms.Button back_button;
         private System.Windows.Forms.Button Clear_button;
         private System.Windows.Forms.Button ok_button;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox postf_textBox;
     }
 }
 
