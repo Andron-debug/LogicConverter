@@ -163,22 +163,22 @@ namespace LogicCalculator
         private static int priority(char c)
         {
             int p = -1;
-            switch (c)
+            switch(c)
             {
-                case '(':
-                    p = 0;
-                    break;
-                case '⋁':
-                    p = 1;
+                case '¬':
+                    p = 3;
                     break;
                 case '⋀':
                     p = 2;
                     break;
-                case '¬':
-                    p = 4;
+                case '⋁': case '⊕':
+                    p = 1;
                     break;
                 default:
-                    p = 3;
+                    p = 0;
+                    break;
+                case '(':
+                    p = -1;
                     break;
             }
             return p;
