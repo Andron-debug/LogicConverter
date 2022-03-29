@@ -73,5 +73,11 @@ namespace LogicCalculator
             }
             input_textBox.BackColor = Color.White;
         }
+
+        private void about_button_Click(object sender, EventArgs e)
+        {
+            Form f = new About_form();
+            f.Show();
+        }
     }
 }

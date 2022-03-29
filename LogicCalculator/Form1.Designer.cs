@@ -56,6 +56,7 @@ namespace LogicCalculator
             this.inf_radioButton = new System.Windows.Forms.RadioButton();
             this.pref_radioButton = new System.Windows.Forms.RadioButton();
             this.postf_radioButton = new System.Windows.Forms.RadioButton();
+            this.about_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inf_textBox
@@ -352,11 +353,22 @@ namespace LogicCalculator
             this.postf_radioButton.UseVisualStyleBackColor = true;
             this.postf_radioButton.CheckedChanged += new System.EventHandler(this.type_Changed);
             // 
+            // about_button
+            // 
+            this.about_button.Location = new System.Drawing.Point(12, 415);
+            this.about_button.Name = "about_button";
+            this.about_button.Size = new System.Drawing.Size(105, 23);
+            this.about_button.TabIndex = 29;
+            this.about_button.Text = "О программе";
+            this.about_button.UseVisualStyleBackColor = true;
+            this.about_button.Click += new System.EventHandler(this.about_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.about_button);
             this.Controls.Add(this.postf_radioButton);
             this.Controls.Add(this.pref_radioButton);
             this.Controls.Add(this.inf_radioButton);
@@ -421,6 +433,7 @@ namespace LogicCalculator
         private System.Windows.Forms.RadioButton inf_radioButton;
         private System.Windows.Forms.RadioButton pref_radioButton;
         private System.Windows.Forms.RadioButton postf_radioButton;
+        private System.Windows.Forms.Button about_button;
     }
 }
 
