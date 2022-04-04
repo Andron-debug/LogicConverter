@@ -113,10 +113,11 @@ namespace LogicCalculator
                 {
                     result += c.ToString();
                     litter_count++;
-                    if(st.Peek() == '¬')
+                    while (st.Peek() == '¬')
                     {
                         result += st.Pop();
                         if (st2.Count != 0) st2.Pop();
+                        if (st.Count() == 0) break;
                     }
                     if (st2.Count != 0)
                     {
