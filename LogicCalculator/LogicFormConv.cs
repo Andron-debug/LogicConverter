@@ -161,6 +161,12 @@ namespace LogicCalculator
                     {
                         while (st.Peek() != '(') post += st.Pop();
                         st.Pop();
+                        while (st.Peek() == '¬')
+                        {
+                            post += st.Pop();
+                            if (st.Count == 0) break;
+                        }
+
                     }
                 }
             }
