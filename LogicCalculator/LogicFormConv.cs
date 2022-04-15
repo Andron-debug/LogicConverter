@@ -22,6 +22,7 @@ namespace LogicCalculator
             {
                 case 0://Инфиксная запись
                     infix = eq;
+                    if (!OkInfix(infix)) throw new Exception("Не корректный ввод");
                     postfix = InfexToPostfix(infix);
                     prefix = PostfixToPrefix(postfix);
                     break;
@@ -36,6 +37,29 @@ namespace LogicCalculator
                     prefix = PostfixToPrefix(postfix);
                     break;
             }
+        }
+        private static char[] sim = { '¬', '⋀', '⋁', '⊕', '(', ')', '→', '↔' };
+        private static bool OkInfix(string infix)
+        {
+            if (sim.Contains(infix[infix.Length - 1])) return false;
+            Stack<char> st = new Stack<char>();
+            foreach (char c in infix)
+            {
+                if (c == '(') st.Push('(');
+                if (c == ')')
+                {
+                    if (st.Count == 0) return false;
+                    else st.Pop();
+                }
+            }
+            if (st.Count != 0) return false;
+            for (int i = 0; i < infix.Length - 1; i++)
+            {
+                if (char.IsLetter(infix[i]) && (!(sim.Contains(infix[i + 1])) || (infix[i + 1] == '('))) return false;
+                if (sim.Contains(infix[i]) && (sim.Contains(infix[i + 1])) && (infix[i + 1] != '(') && (infix[i + 1] != '¬') && (infix[i] != ')')) return false;
+                if ((infix[i] == ')') && ((char.IsLetter(infix[i + 1])) || (infix[i] == '¬'))) return false;
+            }
+            return true;
         }
         private static string PostfixToPrefix(string postfix)
         {
@@ -162,6 +186,7 @@ namespace LogicCalculator
                     {
                         while (st.Peek() != '(') post += st.Pop();
                         st.Pop();
+                        if(st.Count != 0)
                         while (st.Peek() == '¬')
                         {
                             post += st.Pop();
