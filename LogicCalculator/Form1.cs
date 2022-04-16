@@ -44,10 +44,17 @@ namespace LogicCalculator
 
         private void ok_button_Click(object sender, EventArgs e)
         {
-            LogicFormConv conv = new LogicFormConv(input_textBox.Text, type);
-            inf_textBox.Text = conv.Infix;
-            pref_textBox.Text = conv.Prefix;
-            postf_textBox.Text = conv.Postfix;
+            try
+            {
+                LogicFormConv conv = new LogicFormConv(input_textBox.Text, type);
+                inf_textBox.Text = conv.Infix;
+                pref_textBox.Text = conv.Prefix;
+                postf_textBox.Text = conv.Postfix;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private int type = 0;
         private TextBox input_textBox;

@@ -18,30 +18,41 @@ namespace LogicCalculator
 
         public LogicFormConv(string eq, int type)
         {
+            if ((type < 0) || (type > 2)) throw new Exception("Не существует тип");
             switch(type)
             {
                 case 0://Инфиксная запись
                     infix = eq;
                     if (!OkInfix(infix)) throw new Exception("Не корректный ввод");
-                    postfix = InfexToPostfix(infix);
-                    prefix = PostfixToPrefix(postfix);
+                    try
+                    {
+                        postfix = InfexToPostfix(infix);
+                        prefix = PostfixToPrefix(postfix);
+                    }
+                    catch
+                    {
+                        throw new Exception("Не корректный ввод");
+                    }
                     break;
                 case 1: //Префиксная запись
                     prefix = eq;
+                    if (!OkPrefix(prefix)) throw new Exception("Не корректный ввод");
                     postfix = PrefixToPostfix(prefix);
                     infix = PostfixToInfix(postfix);
                     break;
                 case 2://Постфиксная запись
                     postfix = eq;
+                    if(!OkPostfix(postfix)) throw new Exception("Не корректный ввод");
                     infix = PostfixToInfix(postfix);
                     prefix = PostfixToPrefix(postfix);
                     break;
             }
         }
         private static char[] sim = { '¬', '⋀', '⋁', '⊕', '(', ')', '→', '↔' };
-        private static bool OkInfix(string infix)
+        public static bool OkInfix(string infix)
         {
-            if (sim.Contains(infix[infix.Length - 1])) return false;
+            if (sim.Contains(infix[infix.Length - 1])&&(infix[infix.Length - 1] != ')')) return false;
+            if(sim.Contains(infix[0])&&(infix[0]!= '¬')&&(infix[0]!='(')) return false;
             Stack<char> st = new Stack<char>();
             foreach (char c in infix)
             {
@@ -55,12 +66,38 @@ namespace LogicCalculator
             if (st.Count != 0) return false;
             for (int i = 0; i < infix.Length - 1; i++)
             {
-                if (char.IsLetter(infix[i]) && (!(sim.Contains(infix[i + 1])) || (infix[i + 1] == '('))) return false;
-                if (sim.Contains(infix[i]) && (sim.Contains(infix[i + 1])) && (infix[i + 1] != '(') && (infix[i + 1] != '¬') && (infix[i] != ')')) return false;
-                if ((infix[i] == ')') && ((char.IsLetter(infix[i + 1])) || (infix[i] == '¬'))) return false;
+                char now = infix[i];
+                char next = infix[i + 1];
+                if (char.IsLetter(now) && (!(sim.Contains(next)) || (next == '(')||(next == '¬'))) return false;
+                if (sim.Contains(now) && (sim.Contains(next)) && (next != '(') && (next != '¬') && (now != ')')) return false;
+                if ((now == ')') && ((char.IsLetter(next)) || (next == '¬'))) return false;
             }
             return true;
         }
+        public static bool OkPostfix(string postfix)
+        {
+            if (sim.Contains(postfix[0])) return false;
+            if (char.IsLetter(postfix[postfix.Length - 1])) return false;
+            return RightSim(postfix);
+        }
+        public static bool OkPrefix(string prefix)
+        {
+            if (sim.Contains(prefix[prefix.Length - 1])) return false;
+            if (char.IsLetter(prefix[0])) return false;
+            return RightSim(prefix);
+        }
+        private static bool RightSim(string problem)
+        {
+            int sim_count = 0;
+            int lit_count = 0;
+            foreach (char c in problem)
+            {
+                if (char.IsLetter(c)) lit_count++;
+                if (sim.Contains(c) && (c != '¬')) sim_count++;
+            }
+            return lit_count - 1 == sim_count;
+        }
+
         private static string PostfixToPrefix(string postfix)
         {
             Stack<string> st = new Stack<string>();
