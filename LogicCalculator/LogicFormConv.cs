@@ -23,26 +23,20 @@ namespace LogicCalculator
             {
                 case 0://Инфиксная запись
                     infix = eq;
-                    if (!OkInfix(infix)) throw new Exception("Не корректный ввод");
-                    try
-                    {
+                    if (!OkInfix(infix)) throw new ApplicationException("Не корректный ввод");
                         postfix = InfexToPostfix(infix);
                         prefix = PostfixToPrefix(postfix);
-                    }
-                    catch
-                    {
-                        throw new Exception("Не корректный ввод");
-                    }
+
                     break;
                 case 1: //Префиксная запись
                     prefix = eq;
-                    if (!OkPrefix(prefix)) throw new Exception("Не корректный ввод");
+                    if (!OkPrefix(prefix)) throw new ApplicationException("Не корректный ввод");
                     postfix = PrefixToPostfix(prefix);
                     infix = PostfixToInfix(postfix);
                     break;
                 case 2://Постфиксная запись
                     postfix = eq;
-                    if(!OkPostfix(postfix)) throw new Exception("Не корректный ввод");
+                    if(!OkPostfix(postfix)) throw new ApplicationException("Не корректный ввод");
                     infix = PostfixToInfix(postfix);
                     prefix = PostfixToPrefix(postfix);
                     break;
@@ -199,7 +193,16 @@ namespace LogicCalculator
             Stack<char> st = new Stack<char>();
             foreach (char c in infix)
             {
-                if (Char.IsLetter(c)) post += c.ToString();
+                if (Char.IsLetter(c))
+                {
+                    post += c.ToString();
+                    if (st.Count != 0)
+                        while (st.Peek() == '¬')
+                        {
+                            post += st.Pop();
+                            if (st.Count == 0) break;
+                        }
+                }
                 else
                 {
                     if ((c != '(') && (c != ')'))
@@ -218,12 +221,12 @@ namespace LogicCalculator
                     {
                         while (st.Peek() != '(') post += st.Pop();
                         st.Pop();
-                        if(st.Count != 0)
-                        while (st.Peek() == '¬')
-                        {
-                            post += st.Pop();
-                            if (st.Count == 0) break;
-                        }
+                        if (st.Count != 0)
+                            while (st.Peek() == '¬')
+                            {
+                                post += st.Pop();
+                                if (st.Count == 0) break;
+                            }
 
                     }
                 }
