@@ -161,32 +161,28 @@ namespace LogicCalculator
             string result = "";
             int litter_count = 0;
             Stack<Char> st = new Stack<char>();
-            Stack<Char> st2 = new Stack<char>();
             foreach (char c in prefix)
             {
                 if (!char.IsLetter(c))
                 {
-                    if (st.Count != 0) st2.Push(st.Peek());
                     st.Push(c);
-                    if(c != '¬') litter_count = 0;
                 }
                 else
                 {
                     result += c.ToString();
                     litter_count++;
-                    while (st.Peek() == '¬')
-                    {
-                        result += st.Pop();
-                        if (st2.Count != 0) st2.Pop();
-                        if (st.Count() == 0) break;
-                    }
-                    if (st2.Count != 0)
-                    {
-                        if ((priority(st.Peek()) > priority(st2.Peek()))&&(litter_count == 2))
+                    if(st.Peek() == '¬')
+                    { 
+                        while (st.Peek() == '¬')
                         {
                             result += st.Pop();
-                            st2.Pop();
+                            if (st.Count() == 0) break;
                         }
+                    }
+                    if (litter_count == 2)
+                    {
+                        result += st.Pop();
+                        litter_count = 0;
                     }
                 }
             }
@@ -213,9 +209,8 @@ namespace LogicCalculator
                             if (priority(st.Peek()) > priority(c))
                             {
                                 post += st.Pop();
-                                st.Push(c);
                             }
-                            else st.Push(c);
+                            st.Push(c);
                         }
                     else if (c == '(')
                         st.Push(c);
