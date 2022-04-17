@@ -24,7 +24,7 @@ namespace LogicCalculator
                 case 0://Инфиксная запись
                     infix = eq;
                     if (!OkInfix(infix)) throw new ApplicationException("Не корректный ввод");
-                        postfix = InfexToPostfix(infix);
+                        postfix = InfixToPostfix(infix);
                         prefix = PostfixToPrefix(postfix);
 
                     break;
@@ -150,44 +150,22 @@ namespace LogicCalculator
             }
             return st.Pop();
         }
+       
         private static string PrefixToPostfix(string prefix)
         {
-            string result = "";
-            int litter_count = 0;
-            Stack<Char> st = new Stack<char>();
-            foreach (char c in prefix)
-            {
-                if (!char.IsLetter(c))
-                {
-                    st.Push(c);
-                }
-                else
-                {
-                    result += c.ToString();
-                    litter_count++;
-                    if(st.Peek() == '¬')
-                    { 
-                        while (st.Peek() == '¬')
-                        {
-                            result += st.Pop();
-                            if (st.Count() == 0) break;
-                        }
-                    }
-                    if (litter_count == 2)
-                    {
-                        result += st.Pop();
-                        litter_count = 0;
-                    }
-                }
-            }
-            
-            while (st.Count != 0)
-            {
-                result += st.Pop();
-            }
-            return result;
+            prefix = Reverse(prefix);
+            return Reverse(PostfixToPrefix(prefix));
         }
-        private static string InfexToPostfix(string infix)
+        private static string Reverse(string st)
+        {
+            string res = "";
+            for (int i = st.Length -1; i >= 0; i--)
+            {
+                res += st[i];
+            }
+            return res;
+        }
+        private static string InfixToPostfix(string infix)
         {
             string post = "";
             Stack<char> st = new Stack<char>();
